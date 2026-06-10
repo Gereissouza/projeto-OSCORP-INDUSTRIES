@@ -1,3 +1,176 @@
-h1 {
-    color:blue
+:root{
+    --verde-neon:#ffffff;
+    --verde-escuro:#ffffff49;
+    --branco:#ffffff;
+    --cinza:rgba(0,0,0,0.7);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:#050505;
+    color:white;
+}
+
+/* ===================== */
+/* BANNER RESPONSIVO */
+/* ===================== */
+
+.hero{
+    position:relative;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+
+    background-image:url("./img/banner-desktop.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(0,0,0,.5),
+        rgba(0,0,0,.85)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+    animation:fadeIn 1.2s ease;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    letter-spacing:4px;
+    text-shadow:0 0 20px white;
+}
+
+.hero-content p{
+    margin-top:20px;
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+/* ===================== */
+/* PESQUISAS */
+/* ===================== */
+
+.pesquisas{
+    padding:80px 10%;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+}
+
+.pesquisa{
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:15px;
+
+    padding:30px;
+
+    transition:.4s;
+}
+
+.pesquisa:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.15);
+}
+
+.pesquisa h2{
+    margin-bottom:15px;
+    font-size:1.5rem;
+}
+
+.pesquisa p{
+    line-height:1.8;
+    opacity:.9;
+}
+
+/* ===================== */
+/* TABLET */
+/* ===================== */
+
+@media (max-width:1024px){
+
+    .hero{
+        background-image:url("./img/banner-tablet.jpg");
+    }
+
+    .hero-content h1{
+        font-size:3rem;
+    }
+
+    .pesquisas{
+        padding:60px 5%;
+    }
+}
+
+/* ===================== */
+/* MOBILE */
+/* ===================== */
+
+@media (max-width:768px){
+
+    .hero{
+        background-image:url("./img/banner-mobile.jpg");
+        min-height:80vh;
+    }
+
+    .hero-content h1{
+        font-size:2.2rem;
+    }
+
+    .hero-content p{
+        font-size:1rem;
+    }
+
+    .pesquisas{
+        grid-template-columns:1fr;
+        padding:40px 20px;
+    }
+
+    .pesquisa{
+        padding:25px;
+    }
+}
+
+/* ===================== */
+/* ANIMAÇÃO */
+/* ===================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
 }
